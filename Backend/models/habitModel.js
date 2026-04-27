@@ -1,22 +1,19 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
 const habitSchema = mongoose.Schema(
-{
-    habitName:{
-        required:true,
-        type: String,
-        
+    {
+        name:{
+            type:String,
+            required:true
+        },
+        userId:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref:"User"
+        },
+        completedDates:[
+            {type:Date}
+        ]
     },
-    userId:{
-        type: mongoose.Schema.Types.ObjectId,
-    ref:"User"
-    },
-    completedDates:[
-        {
-        type:Date,
-    },
-    ],
-},{
-    timestamps:true
-}
+
+    {timestamps:true}
 )
-export default mongoose.model("Habit",habitSchema)
+export default mongoose.model("habit",habitSchema)
