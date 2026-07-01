@@ -1,8 +1,15 @@
 import React from 'react'
-
+import {BrowserRouter} from 'react-router-dom'
+import Home from './routes/Home'
+import "./index.css"
 const App = () => {
   return (
-    <div><h1>Run Routine</h1></div>
+<BrowserRouter>
+<div> 
+<Home/>
+    </div>
+</BrowserRouter>
+    
   )
 }
 
