@@ -1,6 +1,6 @@
 import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -9,18 +9,14 @@ export default function Login() {
       <div className="w-full max-w-md">
 
         {/* Logo */}
-        <div className="flex flex-col items-center mb-8">
+        <div className="flex flex-col items-center mb-3">
           <img
-            src="/logo-light.png"
+            src="/Logo-Dark.png"
             alt="RunRoutine"
-            className="w-24 mb-4"
+            className="w-28"
           />
 
-          <h1 className="text-4xl font-extrabold text-white">
-            Run<span className="text-emerald-500">Routine</span>
-          </h1>
-
-          <p className="text-slate-400 mt-2 text-center">
+          <p className="text-slate-400  text-center">
             Stay consistent. Achieve your goals.
           </p>
         </div>
@@ -127,9 +123,10 @@ export default function Login() {
 
           <p className="text-center mt-8 text-slate-400">
             Don't have an account?{" "}
-            <span className="text-emerald-500 cursor-pointer hover:underline">
-              Sign Up
-            </span>
+            <Link
+            to="/SignUp" className="text-emerald-500 cursor-pointer hover:underline">
+              SignUp
+            </Link>
           </p>
 
         </div>
@@ -137,4 +134,4 @@ export default function Login() {
       </div>
     </div>
   );
-}
+} 
