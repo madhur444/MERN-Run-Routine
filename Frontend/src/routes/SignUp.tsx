@@ -15,8 +15,9 @@ export default function Signup() {
   try {
     const res = await API.post('/signup', { name, email, password });
     localStorage.setItem('token', res.data.token);
+    localStorage.setItem('name', res.data.name);
     setShowToast(true);
-    setTimeout(() => navigate('/'), 1800); // let toast show before redirect
+    setTimeout(() => navigate('/dashboard'), 1800); // let toast show before redirect
   } catch (err: any) {
     setError(err.response?.data?.message || err.message);
   }
