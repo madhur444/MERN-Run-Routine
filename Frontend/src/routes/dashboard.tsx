@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import {
-  Home, ListTodo, Calendar, BarChart2, Clock, Star, User,
-  Plus, Bell, Check,
+  Home, ListTodo, Settings, Clock, Star, User,
 } from "lucide-react";
 
 type Habit = {
@@ -19,13 +18,12 @@ type Habit = {
 };
 
 const sidebarItems = [
-  { label: "Dashboard", icon: Home, active: true },
-  { label: "My Habits", icon: ListTodo },
-  { label: "Weekly", icon: Calendar },
-  { label: "Monthly", icon: BarChart2 },
-  { label: "History", icon: Clock },
-  { label: "Levels", icon: Star },
-  { label: "Profile", icon: User },
+  { label: "Dashboard", icon: Home, to: "/dashboard" },
+  { label: "My Habits", icon: ListTodo, to: "/habits" },
+  { label: "Settings", icon: Settings, to: "/settings" },
+  { label: "History", icon: Clock, to: "/history" },
+  { label: "Levels", icon: Star, to: "/levels" },
+  { label: "Profile", icon: User, to: "/profile" },
 ];
 
 const difficultyColor: Record<string, string> = {

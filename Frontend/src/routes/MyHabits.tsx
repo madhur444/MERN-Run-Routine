@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  Home, ListTodo, Calendar, BarChart2, Clock, Star, User,
+  Home, ListTodo, Settings, Clock, Star, User,
   Plus, Pencil, Trash2, Bell,
 } from "lucide-react";
+import { NavLink} from "react-router-dom";
 
 type Habit = {
   id: number;
@@ -19,15 +20,13 @@ type Habit = {
 };
 
 const sidebarItems = [
-  { label: "Dashboard", icon: Home },
-  { label: "My Habits", icon: ListTodo, active: true },
-  { label: "Weekly", icon: Calendar },
-  { label: "Monthly", icon: BarChart2 },
-  { label: "History", icon: Clock },
-  { label: "Levels", icon: Star },
-  { label: "Profile", icon: User },
+  { label: "Dashboard", icon: Home, to: "/dashboard" },
+  { label: "My Habits", icon: ListTodo, to: "/habits" },
+  { label: "Settings", icon: Settings, to: "/settings" },
+  { label: "History", icon: Clock, to: "/history" },
+  { label: "Levels", icon: Star, to: "/levels" },
+  { label: "Profile", icon: User, to: "/profile" },
 ];
-
 const difficultyColor: Record<string, string> = {
   Easy: "bg-emerald-500/20 text-emerald-400",
   Medium: "bg-amber-500/20 text-amber-400",
@@ -76,20 +75,23 @@ export default function MyHabits() {
         </div>
 
         <nav className="flex-1 px-4 space-y-1">
-          {sidebarItems.map(({ label, icon: Icon, active }) => (
-            <button
-              key={label}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition ${
-                active
-                  ? "bg-emerald-500/10 text-emerald-400"
-                  : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200"
-              }`}
-            >
-              <Icon className="w-5 h-5" />
-              {label}
-            </button>
-          ))}
-        </nav>
+  {sidebarItems.map(({ label, icon: Icon, to }) => (
+    <NavLink
+      key={label}
+      to={to}
+      className={({ isActive }) =>
+        `w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition ${
+          isActive
+            ? "bg-emerald-500/10 text-emerald-400"
+            : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200"
+        }`
+      }
+    >
+      <Icon className="w-5 h-5" />
+      {label}
+    </NavLink>
+  ))}
+</nav>
 
         <div className="p-4 border-t border-slate-800">
           <button

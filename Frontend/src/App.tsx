@@ -8,6 +8,7 @@ import MyHabits from "./routes/MyHabits";
 import History from "./routes/History";
 import Profile from "./routes/Profile";
 import Levels from "./routes/Levels";
+import Settings  from "./routes/Settings";
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/history" element={<History />} />
         <Route path="/dashboard" element={<Home />} />
+        <Route path="/settings" element={<Settings />} />
         <Route path="/" element={<Starter/>} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />

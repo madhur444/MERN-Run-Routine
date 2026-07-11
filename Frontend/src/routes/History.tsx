@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  Home, ListTodo, Calendar, BarChart2, Clock, Star, User,
+  Home, ListTodo, Settings, Clock, Star, User,
 } from "lucide-react";
 
 const sidebarItems = [
   { label: "Dashboard", icon: Home, to: "/dashboard" },
   { label: "My Habits", icon: ListTodo, to: "/habits" },
-  { label: "Weekly", icon: Calendar, to: "/weekly" },
-  { label: "Monthly", icon: BarChart2, to: "/monthly" },
-  { label: "History", icon: Clock, to: "/history", active: true },
+  { label: "Settings", icon: Settings, to: "/settings" },
+  { label: "History", icon: Clock, to: "/history" },
   { label: "Levels", icon: Star, to: "/levels" },
   { label: "Profile", icon: User, to: "/profile" },
 ];
