@@ -10,19 +10,19 @@ const navItems = [
 
 export default function Navbar() {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-slate-800 border-t border-slate-700 flex justify-around items-center py-3 px-4 sm:static sm:justify-center sm:gap-10 sm:border-t-0 sm:border-b sm:py-4">
+    <nav className="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-lg border-t border-slate-700 flex justify-around items-center py-4 sm:py-5 px-4 sm:px-10 max-w-3xl mx-auto sm:rounded-t-3xl z-50">
       {navItems.map(({ to, label, icon: Icon }) => (
         <NavLink
           key={to}
           to={to}
           className={({ isActive }) =>
-            `flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium transition ${
-              isActive ? "text-emerald-500" : "text-slate-400 hover:text-slate-200"
+            `flex flex-col items-center gap-1.5 transition ${
+              isActive ? "text-emerald-500" : "text-slate-500 hover:text-slate-300"
             }`
           }
         >
-          <Icon className="w-5 h-5" />
-          <span>{label}</span>
+          <Icon className="w-7 h-7 sm:w-8 sm:h-8" />
+          <span className="text-xs sm:text-sm font-medium">{label}</span>
         </NavLink>
       ))}
     </nav>
