@@ -7,7 +7,7 @@ import Starter from "./routes/Starter";
 import MyHabits from "./routes/MyHabits";
 import History from "./routes/History";
 import Profile from "./routes/Profile";
-
+import Levels from "./routes/Levels";
 
 
 
@@ -16,6 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/levels" element={<Levels />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/history" element={<History />} />
         <Route path="/dashboard" element={<Home />} />
